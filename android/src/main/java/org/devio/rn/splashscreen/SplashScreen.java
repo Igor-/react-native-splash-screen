@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.os.Build;
 
 import java.lang.ref.WeakReference;
+import android.graphics.drawable.AnimationDrawable;
 
 /**
  * SplashScreen
@@ -30,6 +31,8 @@ public class SplashScreen {
                 if (!activity.isFinishing()) {
                     mSplashDialog = new Dialog(activity, themeResId);
                     mSplashDialog.setContentView(R.layout.launch_screen);
+                    AnimationDrawable animation = (AnimationDrawable) mSplashDialog.findViewById(R.id.pulse_icon);
+                    animation.start();
                     mSplashDialog.setCancelable(false);
 
                     if (!mSplashDialog.isShowing()) {
